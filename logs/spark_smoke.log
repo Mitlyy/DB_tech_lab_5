@@ -1,0 +1,13 @@
+[INFO] Spark version: 4.0.1
+[INFO] Event log dir: file:///home/dima/Documents/DB_labs/lab1/DB_tech_lab_5/logs/spark-events
+[INFO] Spark UI: http://localhost:4040
+[INFO] WordCount: [('big', 1), ('clusters', 1), ('hello', 2), ('spark', 2), ('data', 1), ('makes', 1)]
+[INFO] Simple aggregation:
++-----+---+----+
+|group|  n| avg|
++-----+---+----+
+|    A|  2|15.0|
+|    B|  2|40.0|
++-----+---+----+
+
+[INFO] Done. Keep session a bit for UI…

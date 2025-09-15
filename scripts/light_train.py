@@ -6,7 +6,8 @@ from pyspark.ml.evaluation import ClusteringEvaluator
 from pyspark.ml.feature import Imputer, StandardScaler, VectorAssembler
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
-
+from spark_config import build_spark_from_yaml, add_spark_cli_args
+import argparse
 SAMPLED_PATH = "data/out/nutrients_sampled.parquet"
 OUT_DIR = "data/out"
 MODEL_DIR = os.path.join(OUT_DIR, "kmeans_model_fast")
@@ -28,12 +29,13 @@ SIL_SAMPLE_FRACTION = 0.15
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Light training pipeline (DBTechLab5)")
+    add_spark_cli_args(parser)
     os.makedirs(OUT_DIR, exist_ok=True)
-
-    spark = (
-        SparkSession.builder.appName("OpenFoodFactsKMeansFast")
-        .config("spark.sql.shuffle.partitions", "8")
-        .getOrCreate()
+    args = parser.parse_args()
+    spark = build_spark_from_yaml(
+        yaml_path=args.spark_yaml,
+        cli_overrides=args.spark_conf,
     )
 
     data = spark.read.parquet(SAMPLED_PATH)

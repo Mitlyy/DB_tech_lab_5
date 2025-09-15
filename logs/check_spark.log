@@ -1,0 +1,13 @@
+[INFO] Python: 3.12.3
+[INFO] PySpark: 4.0.1
+[INFO] Spark: 4.0.1
+[INFO] Java: openjdk version "17.0.16" 2025-07-15
+[INFO] Master: local[*]
+[INFO] Spark UI: http://localhost:4040
+[INFO] Selected Spark conf:
+  - spark.default.parallelism = unset
+  - spark.driver.memory = unset
+  - spark.eventLog.dir = unset
+  - spark.eventLog.enabled = unset
+  - spark.executor.memory = unset
+  - spark.sql.shuffle.partitions = unset
